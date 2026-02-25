@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses & Paths | CodingHub</title>
+    <meta name="description" content="Explore learning paths and featured courses at CodingHub.">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/codinghub-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Glow Elements for Dark Theme -->
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+
+    <!-- Navigation -->
+    <nav>
+         <div class="logo">
+            <a href="index.html" class="logo-brand">
+                <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html" class="text-gradient">Courses</a></li>
+            <li><a href="team.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="login.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Login</a></li>
+        </ul>
+        
+    </nav>
+
+    <!-- Page Header -->
+    <section style="padding: 4rem 5% 0; text-align: center;">
+        <h1 style="font-size: 3.5rem; margin-bottom: 1rem; font-weight: 800;">Our <span
+                class="text-gradient">Curriculum</span></h1>
+        <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Build real-world
+            projects and earn verified certifications completely free.</p>
+            
+        <!-- Search Bar -->
+        <div style="margin: 2rem auto 0; max-width: 500px; position: relative;">
+            <input type="text" id="course-search" placeholder="Search courses (e.g. Java, Python)..." 
+            style="width: 100%; padding: 1rem 1.5rem; border-radius: 50px; border: 1px solid var(--glass-border); background: rgba(255,255,255,0.05); color: var(--text-primary); font-size: 1rem; outline: none; transition: all 0.3s ease;">
+            <div style="position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); opacity: 0.7;">🔍</div>
+        </div>
+    </section>
+
+    <!-- Learning Paths Section -->
+    <section id="paths">
+        <h2 class="section-title">Explore Learning <span class="text-gradient">Paths</span></h2>
+        <div class="grid-4-col" id="learning-paths-grid">
+            <!-- Course paths will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" style="background: rgba(0,0,0,0.3); margin: 0 -5%; padding: 6rem 5%;">
+        <h2 class="section-title">How It <span class="text-gradient">Works</span></h2>
+        <div class="grid-4-col">
+            <div class="glass-card step-card">
+                <div class="step-number">1</div>
+                <h4>Choose a Path</h4>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Select a curriculum
+                    tailored to your goals.</p>
+            </div>
+            <div class="glass-card step-card">
+                <div class="step-number">2</div>
+                <h4>Learn with Projects</h4>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Follow interactive
+                    lessons and write real code.</p>
+            </div>
+            <div class="glass-card step-card">
+                <div class="step-number">3</div>
+                <h4>Build Portfolio</h4>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Create a portfolio of
+                    proven, real-world apps.</p>
+            </div>
+            <div class="glass-card step-card">
+                <div class="step-number">4</div>
+                <h4>Get Certified</h4>
+                <p style="color: var(--text-secondary); margin-top: 0.5rem; font-size: 0.9rem;">Earn certificates to
+                    showcase your skills to employers.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Section -->
+    <section id="courses">
+        <h2 class="section-title">Featured <span class="text-gradient">Courses</span></h2>
+        <div class="featured-grid" id="featured-courses-grid">
+            <!-- Featured courses will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo"><span class="text-gradient">Coding</span>Hub</div>
+                <p style="margin-top: 1rem;">Empowering the next generation of developers worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Learning Paths</h5>
+                <a href="#">Java Ecosystem</a>
+                <a href="pythonlearning.html">Python Mastery</a>
+                <a href="frontendlearning.html">Frontend Design</a>
+                <a href="aiandbackendlearning.html">Backend &amp; AI</a>
+                
+            </div>
+            <div class="footer-col">
+                <h5>Organization</h5>
+                <a href="team.html">Our Team</a>
+                <a href="about.html">About Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <a href="mailto:contact@codinghub.com">codinghubofficial@gmail.com</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CodingHub. Inspired by freeCodeCamp. Designed by Devidutta Das & Team.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isEnrolled = Object.keys(localStorage).some(key => key.startsWith('enrolled_') && localStorage.getItem(key) === 'true');
+            if (isEnrolled) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<a href="courses.html" class="text-gradient" style="font-weight: 700;">My Learning</a>';
+                    navUl.appendChild(li);
+                }
+            }
+
+            // Check for logged in user
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const loginLink = navUl.querySelector('a[href="login.html"]');
+                    if (loginLink && loginLink.parentElement) loginLink.parentElement.remove();
+
+                    const profileLi = document.createElement('li');
+                    profileLi.innerHTML = '<a href="profile.html" class="text-gradient" style="font-weight: 700;">My Profile</a>';
+                    navUl.appendChild(profileLi);
+
+                    const logoutLi = document.createElement('li');
+                    logoutLi.innerHTML = '<a href="#" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Logout</a>';
+                    logoutLi.querySelector('a').addEventListener('click', (e) => {
+                        e.preventDefault();
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'index.html';
+                    });
+                    navUl.appendChild(logoutLi);
+                }
+            }
+        });
+
+        // Fetch and render courses from the backend
+        document.addEventListener('DOMContentLoaded', async function() {
+            const pathsGrid = document.getElementById('learning-paths-grid');
+            const featuredGrid = document.getElementById('featured-courses-grid');
+            const searchInput = document.getElementById('course-search');
+            
+            // Static Course Data (Replaces Backend)
+            const allCourses = [
+                {
+                    "id": "java",
+                    "title": "Java Ecosystem",
+                    "description": "Master Java, Spring Boot, and enterprise application development.",
+                    "tags": ["Java", "Backend", "Enterprise"],
+                    "price": 0
+                },
+                {
+                    "id": "python",
+                    "title": "Python Mastery",
+                    "description": "Learn Python for Data Science, AI, and scripting.",
+                    "tags": ["Python", "AI", "Data Science"],
+                    "price": 0
+                },
+                {
+                    "id": "c-programming",
+                    "title": "C Programming",
+                    "description": "Understand the fundamentals of computer science and memory management.",
+                    "tags": ["C", "System Programming"],
+                    "price": 0
+                },
+                {
+                    "id": "frontend",
+                    "title": "Frontend Design",
+                    "description": "Build beautiful interfaces with HTML, CSS, and JavaScript.",
+                    "tags": ["HTML", "CSS", "JavaScript"],
+                    "price": 0
+                },
+                {
+                    "id": "ai",
+                    "title": "AI & Backend Architecture",
+                    "description": "Build robust APIs and integrate intelligent models.",
+                    "tags": ["AI", "Backend", "Python"],
+                    "price": 0
+                }
+            ];
+
+            // Map course IDs to emojis for display
+            const iconMap = {
+                'java': '☕',
+                'python': '🐍',
+                'c-programming': '💻',
+                'frontend': '🎨'
+            };
+
+            function renderCourses(courses) {
+                // Clear placeholder content
+                pathsGrid.innerHTML = '';
+                featuredGrid.innerHTML = '';
+
+                if (courses.length === 0) {
+                    pathsGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: var(--text-secondary);">No courses found matching your search.</div>';
+                    return;
+                }
+
+                courses.forEach(course => {
+                    const icon = iconMap[course.id] || '🚀';
+
+                    // Create Learning Path Card
+                    const pathCard = document.createElement('div');
+                    pathCard.className = 'glass-card path-card';
+                    pathCard.innerHTML = `
+                        <div class="path-icon">${icon}</div>
+                        <h3>${course.title}</h3>
+                        <p>${course.description}</p>
+                        <a href="trycoursefree.html?course=${course.id}" class="text-gradient" style="text-decoration:none; font-weight:600;">Start Learning &rarr;</a>
+                    `;
+                    pathsGrid.appendChild(pathCard);
+
+                    // Create Featured Course Card
+                    const featuredCard = document.createElement('div');
+                    featuredCard.className = 'glass-card featured-card';
+                    featuredCard.innerHTML = `
+                        <div class="featured-img" style="border-bottom: 2px solid var(--glass-border);">${icon}</div>
+                        <div class="featured-content">
+                            <h4>${course.title}</h4>
+                            <p>${course.description}</p>
+                            <div class="featured-meta">
+                                <span>300 Hours</span>
+                                <span class="text-gradient">${course.price === 0 ? 'Free' : '$' + course.price}</span>
+                            </div>
+                        </div>
+                    `;
+                    featuredGrid.appendChild(featuredCard);
+                });
+            }
+
+            try {
+                renderCourses(allCourses); // Render static data immediately
+
+                // Search Event Listener
+                if (searchInput) {
+                    searchInput.addEventListener('input', (e) => {
+                        const term = e.target.value.toLowerCase();
+                        const filtered = allCourses.filter(course => 
+                            course.title.toLowerCase().includes(term) || 
+                            (course.tags && course.tags.some(tag => tag.toLowerCase().includes(term)))
+                        );
+                        renderCourses(filtered);
+                    });
+                }
+            } catch (error) {
+                pathsGrid.innerHTML = '<p style="color: var(--text-secondary);">Could not load courses. Is the backend server running?</p>';
+                console.error("Failed to load courses:", error);
+            }
+        });
+    </script>
+</body>
+
+</html>

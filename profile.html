@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | CodingHub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/codinghub-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html" class="logo-brand">
+                <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="team.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="payment.html">Payment</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- User Info Section -->
+        <section style="padding-top: 4rem; padding-bottom: 2rem;">
+            <div class="glass-card" style="max-width: 600px; margin: 0 auto; text-align: center;">
+                <div style="width: 100px; height: 100px; background: linear-gradient(45deg, var(--neon-blue), var(--neon-purple)); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 3rem; box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);">
+                    👤
+                </div>
+                <h2 id="user-email" style="margin-bottom: 0.5rem;">Loading...</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem;">Student at CodingHub</p>
+                <button id="logout-btn" class="btn btn-secondary">Log Out</button>
+            </div>
+        </section>
+
+        <!-- Enrolled Courses Section -->
+        <section id="my-courses">
+            <h2 class="section-title">My <span class="text-gradient">Enrollments</span></h2>
+            <div class="grid-3-col" id="enrolled-grid" style="padding: 0 5%;">
+                <!-- Dynamic Content -->
+            </div>
+            <div id="no-courses" style="text-align: center; display: none; margin-top: 2rem;">
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem; font-size: 1.2rem;">You haven't enrolled in any courses yet.</p>
+                <a href="courses.html" class="btn btn-primary">Browse Courses</a>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <a href="index.html" class="logo-brand">
+                        <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                        <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+                    </a>
+                </div>
+                <p style="margin-top: 1rem;">Empowering the next generation of developers worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Learning Paths</h5>
+                <a href="courses.html">Java Ecosystem</a>
+                <a href="pythonlearning.html">Python Mastery</a>
+                <a href="frontendlearning.html">Frontend Design</a>
+                <a href="aiandbackendlearning.html">Backend &amp; AI</a>
+            </div>
+            <div class="footer-col">
+                <h5>Organization</h5>
+                <a href="team.html">Our Team</a>
+                <a href="about.html">About Us</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CodingHub. Inspired by freeCodeCamp. Designed by Devidutta Das &amp; Team.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // 1. Check Login Status
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // 2. Display User Info
+            document.getElementById('user-email').textContent = currentUser.email;
+
+            // 3. Logout Logic
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                localStorage.removeItem('currentUser');
+                window.location.href = 'index.html';
+            });
+
+            // 4. Load Enrolled Courses
+            const enrolledGrid = document.getElementById('enrolled-grid');
+            const noCoursesMsg = document.getElementById('no-courses');
+            
+            // Static Course Data for lookup
+            const coursesDB = {
+                'java': { id: 'java', title: "Java Ecosystem", description: "Master Java, Spring Boot, and enterprise application development." },
+                'python': { id: 'python', title: "Python Mastery", description: "Learn Python for Data Science, AI, and scripting." },
+                'c-programming': { id: 'c-programming', title: "C Programming", description: "Understand the fundamentals of computer science and memory management." },
+                'frontend': { id: 'frontend', title: "Frontend Design", description: "Build beautiful interfaces with HTML, CSS, and JavaScript." },
+                'ai': { id: 'ai', title: "AI & Backend Architecture", description: "Build robust APIs and integrate intelligent models." }
+            };
+            
+            // Find all keys in localStorage that start with 'enrolled_' and are 'true'
+            const enrolledIds = Object.keys(localStorage)
+                .filter(key => key.startsWith('enrolled_') && localStorage.getItem(key) === 'true')
+                .map(key => key.replace('enrolled_', ''));
+
+            if (enrolledIds.length === 0) {
+                noCoursesMsg.style.display = 'block';
+            } else {
+                // Render details for each enrolled course from static data
+                for (const courseId of enrolledIds) {
+                            const course = coursesDB[courseId];
+                            if (course) {
+                            const card = document.createElement('div');
+                            card.className = 'glass-card course-card';
+                            card.innerHTML = `
+                                <h4>${course.title}</h4>
+                                <p>${course.description}</p>
+                                <div class="course-meta">
+                                    <span class="info-badge" style="background: rgba(0, 255, 170, 0.1); color: #00ffaa; border-color: #00ffaa;">Active</span>
+                                    <a href="trycoursefree.html?course=${course.id}" class="text-gradient" style="font-weight: 600; text-decoration: none;">Continue Learning &rarr;</a>
+                                </div>
+                            `;
+                            enrolledGrid.appendChild(card);
+                        }
+                }
+            }
+
+            // Update Navigation
+            const navUl = document.querySelector('nav ul');
+            if (navUl) {
+                // Remove Login button if present
+                const loginLink = navUl.querySelector('a[href="login.html"]');
+                if (loginLink && loginLink.parentElement) loginLink.parentElement.remove();
+
+                // Add Logout to Nav
+                const logoutLi = document.createElement('li');
+                logoutLi.innerHTML = '<a href="#" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Logout</a>';
+                logoutLi.querySelector('a').addEventListener('click', (e) => {
+                    e.preventDefault();
+                    localStorage.removeItem('currentUser');
+                    window.location.href = 'index.html';
+                });
+                navUl.appendChild(logoutLi);
+            }
+        });
+    </script>
+</body>
+</html>

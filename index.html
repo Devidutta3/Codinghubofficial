@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingHub | Learn to Code and Keep Growing</title>
+    <meta name="description"
+        content="Master Java, Python, AI, and Web Development for free. Build projects and earn certifications with CodingHub.">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/codinghub-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Background Glow Elements for Dark Theme -->
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html" class="logo-brand">
+                <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html" class="text-gradient">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="team.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="login.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero"
+        style="min-height: 70vh; flex-direction: column; text-align: center; justify-content: center;">
+        <div class="hero-content" style="max-width: 800px; margin: 0 auto;">
+            <div
+                style="display: inline-block; padding: 0.5rem 1rem; border-radius: 20px; background: var(--glass-bg); border: 1px solid var(--glass-border); margin-bottom: 2rem; color: var(--neon-blue); font-weight: 600; font-size: 0.9rem;">
+                Free Tech Education for Everyone
+            </div>
+            <h1 style="font-size: 5rem; margin-bottom: 1.5rem;">Learn to <span class="text-gradient">Code</span><br> and Keep
+                Growing. 🚀</h1>
+            <p style="font-size: 1.3rem; margin-bottom: 3rem; color: var(--text-secondary);">
+                Master Java, Python, Backend Development, & AI Models. Build real-world projects and earn verified
+                certifications without spending a dime.
+            </p>
+            <div class="hero-buttons" style="justify-content: center;">
+                <a href="trycoursefree.html?course=java" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Start
+                    Learning</a>
+                <a href="trycoursefree.html?course=java" class="btn btn-secondary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">Try for
+                    Free</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands / Tech Stack Strip -->
+    <section
+        style="padding: 2rem 5%; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); background: rgba(0,0,0,0.2);">
+        <div id="tech-stack-container"
+            style="display: flex; flex-wrap: wrap; justify-content: space-around; align-items: center; opacity: 0.5; font-size: 1.5rem; font-weight: 800; letter-spacing: 2px;">
+            <!-- Tech stack will be dynamically inserted here -->
+        </div>
+    </section>
+
+    <!-- Call to action block -->
+    <section style="text-align: center; padding: 6rem 5%;">
+        <h2>Ready to build your career?</h2>
+        <p style="color:var(--text-secondary); max-width: 500px; margin: 1rem auto 2rem;">Join thousands of students and
+            start building real-world software today.</p>
+        <a href="about.html" class="btn btn-secondary">Learn Why We Are Free</a>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <a href="index.html" class="logo-brand">
+                        <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                        <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+                    </a>
+                </div>
+                <p style="margin-top: 1rem;">Empowering the next generation of developers worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Learning Paths</h5>
+                <a href="courses.html">Java Ecosystem</a>
+                <a href="courses.html">Python Mastery</a>
+                <a href="courses.html">Frontend Design</a>
+                <a href="courses.html">Backend & AI</a>
+            </div>
+            <div class="footer-col">
+                <h5>Organization</h5>
+                <a href="team.html">Our Team</a>
+                <a href="about.html">About Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <a href="mailto:contact@codinghub.com">contact@codinghub.com</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CodingHub. Inspired by freeCodeCamp. Designed by Devidutta Das & Team.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isEnrolled = Object.keys(localStorage).some(key => key.startsWith('enrolled_') && localStorage.getItem(key) === 'true');
+            if (isEnrolled) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<a href="courses.html" class="text-gradient" style="font-weight: 700;">My Learning</a>';
+                    navUl.appendChild(li);
+                }
+            }
+
+            // Check for logged in user to show Profile link
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<a href="profile.html" class="text-gradient" style="font-weight: 700;">My Profile</a>';
+                    navUl.appendChild(li);
+
+                    // Remove Login button
+                    const loginLink = navUl.querySelector('a[href="login.html"]');
+                    if (loginLink && loginLink.parentElement) {
+                        loginLink.parentElement.remove();
+                    }
+
+                    // Add Logout button
+                    const logoutLi = document.createElement('li');
+                    logoutLi.innerHTML = '<a href="#" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Logout</a>';
+                    logoutLi.querySelector('a').addEventListener('click', function(e) {
+                        e.preventDefault();
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'index.html';
+                    });
+                    navUl.appendChild(logoutLi);
+                }
+            }
+        });
+
+        // Fetch and render tech stack on the homepage
+        document.addEventListener('DOMContentLoaded', async function() {
+            const techContainer = document.getElementById('tech-stack-container');
+            
+            // Static Data
+            const courses = [
+                { tags: ["Java"] },
+                { tags: ["Python"] },
+                { tags: ["C Programming"] },
+                { tags: ["HTML/CSS"] },
+                { tags: ["AI Models"] }
+            ];
+
+            try {
+                // Simulate fetch
+                // const response = await fetch(API_URL);
+                // const courses = await response.json();
+                
+                techContainer.innerHTML = ''; // Clear any static content
+                courses.forEach(course => {
+                    const techSpan = document.createElement('span');
+                    techSpan.textContent = course.tags[0].toUpperCase(); // Use the first tag as the tech name
+                    techContainer.appendChild(techSpan);
+                });
+            } catch (error) {
+                techContainer.innerHTML = '<span>Loading Tech...</span>';
+                console.error("Failed to fetch tech stack:", error);
+            }
+        });
+    </script>
+</body>
+
+</html>

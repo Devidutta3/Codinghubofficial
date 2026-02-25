@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | CodingHub</title>
+    <meta name="description" content="Create your CodingHub account.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/codinghub-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html" class="logo-brand">
+                <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="team.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="login.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="auth-container">
+        <div class="glass-card auth-card">
+            <div class="auth-header">
+                <h2>Create <span class="text-gradient">Account</span></h2>
+                <p style="color: var(--text-secondary);">Join the community today</p>
+            </div>
+            <form id="signupForm">
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+                </div>
+                <button type="submit" class="btn btn-primary auth-btn">Sign Up</button>
+            </form>
+            
+            <div class="social-login">
+                <span>Or continue with</span>
+                <a href="#" class="social-btn">
+                    Google
+                </a>
+            </div>
+
+            <div class="auth-footer">
+                Already have an account? <a href="login.html">Log in</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check for logged in user
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const loginLink = navUl.querySelector('a[href="login.html"]');
+                    if (loginLink && loginLink.parentElement) loginLink.parentElement.remove();
+
+                    const profileLi = document.createElement('li');
+                    profileLi.innerHTML = '<a href="profile.html" class="text-gradient" style="font-weight: 700;">My Profile</a>';
+                    navUl.appendChild(profileLi);
+
+                    const logoutLi = document.createElement('li');
+                    logoutLi.innerHTML = '<a href="#" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Logout</a>';
+                    logoutLi.querySelector('a').addEventListener('click', (e) => {
+                        e.preventDefault();
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'index.html';
+                    });
+                    navUl.appendChild(logoutLi);
+                }
+            }
+        });
+
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const btn = document.querySelector('.auth-btn');
+            const originalText = btn.innerText;
+
+            btn.innerText = 'Creating Account...';
+            btn.disabled = true;
+
+            // Mock Signup (Backend Removed)
+            setTimeout(() => {
+                alert('Account created successfully! (Mock Mode) Please log in.');
+                window.location.href = 'login.html';
+                
+                btn.innerText = originalText;
+                btn.disabled = false;
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

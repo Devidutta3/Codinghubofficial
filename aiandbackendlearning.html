@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodingHub | AI & Backend</title>
+    <meta name="description" content="Welcome to the AI & Backend Architecture course at CodingHub.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="assets/codinghub-logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-glow top-left"></div>
+    <div class="bg-glow bottom-right"></div>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html" class="logo-brand">
+                <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+            </a>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="team.html">Community</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="payment.html">Payment</a></li>
+            <li><a href="login.html" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Login</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="payment-hero">
+            <div class="glass-card payment-card">
+                <p class="info-badge">Enrolled</p>
+                <h1>AI & Backend Architecture</h1>
+                <p>Congratulations! You have successfully unlocked the AI & Backend curriculum. Build robust APIs and integrate intelligent models.</p>
+                <div class="payment-grid" style="display: block; margin-top: 2rem;">
+                    <div class="form-wrap" style="width: 100%; max-width: 100%;">
+                        <h3 style="margin-bottom: 1rem;">Your Curriculum</h3>
+                        <ul style="text-align: left; list-style: none; padding: 0; margin-top: 2rem;">
+                            <li style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <strong>Module 01:</strong> Node.js, Express &amp; REST APIs
+                            </li>
+                            <li style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <strong>Module 02:</strong> SQL (PostgreSQL) &amp; NoSQL (MongoDB)
+                            </li>
+                            <li style="padding: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <strong>Module 03:</strong> Python for AI: NumPy &amp; Pandas
+                            </li>
+                            <li style="padding: 1rem;">
+                                <strong>Module 04:</strong> Machine Learning Basics &amp; Model Deployment
+                            </li>
+                        </ul>
+                        <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Start Module 01</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo">
+                    <a href="index.html" class="logo-brand">
+                        <img src="assets/codinghub-logo.svg" alt="CodingHub logo" class="logo-mark">
+                        <span class="logo-text"><span class="text-gradient">Coding</span><span>Hub</span></span>
+                    </a>
+                </div>
+                <p style="margin-top: 1rem;">Empowering the next generation of developers worldwide.</p>
+            </div>
+            <div class="footer-col">
+                <h5>Learning Paths</h5>
+                <a href="courses.html">Java Ecosystem</a>
+                <a href="pythonlearning.html">Python Mastery</a>
+                <a href="frontendlearning.html">Frontend Design</a>
+                <a href="aiandbackendlearning.html">Backend &amp; AI</a>
+            </div>
+            <div class="footer-col">
+                <h5>Organization</h5>
+                <a href="team.html">Our Team</a>
+                <a href="about.html">About Us</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+            <div class="footer-col">
+                <h5>Connect</h5>
+                <a href="mailto:contact@codinghub.com">contact@codinghub.com</a>
+                <a href="#">GitHub</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CodingHub. Inspired by freeCodeCamp. Designed by Devidutta Das &amp; Team.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const isEnrolled = Object.keys(localStorage).some(key => key.startsWith('enrolled_') && localStorage.getItem(key) === 'true');
+            if (isEnrolled) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const li = document.createElement('li');
+                    li.innerHTML = '<a href="courses.html" class="text-gradient" style="font-weight: 700;">My Learning</a>';
+                    navUl.appendChild(li);
+                }
+            }
+
+            // Check for logged in user
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                const navUl = document.querySelector('nav ul');
+                if (navUl) {
+                    const loginLink = navUl.querySelector('a[href="login.html"]');
+                    if (loginLink && loginLink.parentElement) loginLink.parentElement.remove();
+
+                    const profileLi = document.createElement('li');
+                    profileLi.innerHTML = '<a href="profile.html" class="text-gradient" style="font-weight: 700;">My Profile</a>';
+                    navUl.appendChild(profileLi);
+
+                    const logoutLi = document.createElement('li');
+                    logoutLi.innerHTML = '<a href="#" class="btn btn-secondary" style="padding: 0.5rem 1.5rem; border-radius: 20px;">Logout</a>';
+                    logoutLi.querySelector('a').addEventListener('click', (e) => {
+                        e.preventDefault();
+                        localStorage.removeItem('currentUser');
+                        window.location.href = 'index.html';
+                    });
+                    navUl.appendChild(logoutLi);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
